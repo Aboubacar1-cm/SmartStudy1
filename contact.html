@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SmartStudy</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f8fff8;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f9d58;
+            padding: 12px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #0f9d58;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-section h1 {
+            color: #0f9d58;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ea755;
+        }
+
+        footer {
+            background-color: #0f9d58;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">📘 SmartStudy</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="resumes.html">Résumés</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+    </nav>
+
+    <div class="contact-section">
+        <h1>Contactez SmartStudy</h1>
+        <p>
+            Tu as une question, une demande de résumé spécifique ou tu veux proposer une collaboration ?
+            <br> N’hésite pas à nous écrire sur WhatsApp :
+        </p>
+        <a href="https://wa.me/212699289590?text=Bonjour%20SmartStudy%20!%20J’aimerais%20avoir%20plus%20d’informations%20🙂"
+            class="whatsapp-btn" target="_blank">
+            💬 Discuter sur WhatsApp
+        </a>
+        <p style="margin-top: 30px;">📍 EMSI <br>✉ traboubacar68@gmail.com</p>
+    </div>
+
+    <footer>
+        © 2025 SmartStudy. Tous droits réservés.
+    </footer>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const links = document.getElementById("nav-links");
+        toggle.addEventListener("click", () => links.classList.toggle("active"));
+    </script>
+</body>
+
+</html>

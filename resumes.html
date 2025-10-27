@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumés • SmartStudy</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.162/pdf.min.js"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand small">
+            <img src="assets/images/logo.svg" alt="SmartStudy" class="logo-small">
+        </div>
+        <nav class="nav">
+            <a href="index.html">Accueil</a>
+            <a href="resumes.html" class="active">Résumés</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="lang-switch">
+            <button id="lang-fr">FR</button>
+            <button id="lang-en">EN</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="banner">
+            📘 Les fichiers SmartStudy sont protégés.
+            L'achat se fait uniquement via WhatsApp 💬
+        </div>
+
+        <h1 class="catalog-title">Résumés disponibles</h1>
+
+        <div id="catalog" class="grid">
+            <!-- Exemple 1 -->
+            <div class="resume-item">
+                <h3>Résumé Électronique Analogique</h3>
+                <button onclick="acheter('Résumé Électronique Analogique', 10)">Acheter - 10 DH</button>
+            </div>
+
+            <!-- Exemple 2 -->
+            <div class="resume-item">
+                <h3>TD Électronique Analogique</h3>
+                <button onclick="acheter('TD Électronique Analogique', 15)">Acheter - 15 DH</button>
+            </div>
+
+            <!-- Exemple 3 -->
+            <div class="resume-item">
+                <h3>Électrotechnique</h3>
+                <button onclick="acheter('Électrotechnique', 20)">Acheter - 20 DH</button>
+            </div>
+        </div>
+
+        <!-- Visionneuse PDF -->
+        <div id="viewer" aria-hidden="true" style="display:none;">
+            <div id="viewer-header">
+                <h3 id="viewer-title"></h3>
+                <button id="close-view">Fermer</button>
+            </div>
+            <canvas id="pdf-canvas"></canvas>
+        </div>
+    </main>
+
+    <!-- Bouton WhatsApp flottant -->
+    <a id="whatsapp" href="https://wa.me/212699289590" target="_blank" aria-label="WhatsApp">
+        <img src="assets/images/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- JS principal -->
+    <script>
+        function acheter(nom, prix) {
+            const message = ' Bonjour 👋, je suis intéressé par le ${nom} (${prix} DH) sur SmartStudy.';
+            const url = 'https://wa.me/212699289590?text=${encodeURIComponent(message)}';
+            window.open(url, "_blank");
+        }
+    </script>
+    <script>
+        const container = document.getElementById("catalog"); // ton conteneur de résumés
+        const resumes = JSON.parse(localStorage.getItem("smartstudy_resumes")) || [];
+
+        resumes.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "resume-item";
+            div.innerHTML = `
+      <h3>${item.nom}</h3>
+      <p>Prix : ${item.prix} DH</p>
+      <button onclick="acheter('${item.nom}', ${item.prix})">Acheter</button>
+    `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+
+</html>

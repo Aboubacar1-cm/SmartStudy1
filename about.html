@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - SmartStudy</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f8fff8;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f9d58;
+            padding: 12px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #0f9d58;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .content {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #0f9d58;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: #0f9d58;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">📘 SmartStudy</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="resumes.html">Résumés</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+    </nav>
+
+    <div class="content">
+        <h1>À propos de SmartStudy</h1>
+        <p>
+            SmartStudy est une plateforme créée par un étudiant de l’EMSI, passionné par le partage de connaissances et
+            l’efficacité dans l’apprentissage.
+            Notre mission est simple : *aider les étudiants à apprendre mieux et plus vite* à travers des résumés
+            clairs, fiables et faciles à comprendre.
+        </p>
+        <p>
+            Chaque résumé est conçu pour aller à l’essentiel, avec des explications simples et des exemples concrets.
+            L’objectif : te faire gagner du temps et améliorer ta réussite académique 📚.
+        </p>
+        <p><strong>SmartStudy — Apprends mieux, plus vite ⚡</strong></p>
+    </div>
+
+    <footer>
+        © 2025 SmartStudy. Tous droits réservés.
+    </footer>
+
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const links = document.getElementById("nav-links");
+        toggle.addEventListener("click", () => links.classList.toggle("active"));
+    </script>
+</body>
+
+</html>
